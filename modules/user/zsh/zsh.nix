@@ -14,7 +14,7 @@
         };
 
 		shellAliases = {
-			"dokja-update" = "cd ~/dokja-dotfiles && sudo pacman -Syu --noconfirm && nix flake update && home-manager switch --flake .#mz && cd";
+			"dokja-update" = "cd ~/dokja-dotfiles && sudo pacman -Syu --noconfirm && nix flake update && home-manager switch --flake .#dokja && cd";
 			"dokja-switch" = "cd ~/dokja-dotfiles && home-manager switch --flake .#dokja && cd";
 			"dokja-news" = "cd ~/dokja-dotfiles && home-manager news --flake .#dokja && cd";
 		};
