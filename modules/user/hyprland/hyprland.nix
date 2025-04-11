@@ -81,14 +81,14 @@
         };
 
         extraConfig = ''
-            exec-once = ~/mz-dotfiles/scripts/autorun.sh
+            exec-once = ~/dokja-dotfiles/scripts/autorun.sh
 
             ################
             ### MONITORS ###
             ################
 
-            source = ~/mz-dotfiles/modules/user/hyprland/monitors.conf
-            source = ~/mz-dotfiles/modules/user/hyprland/workspaces.conf
+            source = ~/dokja-dotfiles/modules/user/hyprland/monitors.conf
+            source = ~/dokja-dotfiles/modules/user/hyprland/workspaces.conf
 
             # Fix dolphin open with
             env = XDG_MENU_PREFIX,plasma-
