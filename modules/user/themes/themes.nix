@@ -1,41 +1,60 @@
 {config, lib, pkgs, inputs, ...}:
 
 {
-    qt = {
-        enable = true;
-        platformTheme.name = "gtk";
-        style.name = "kvantum";
-        style.package = pkgs.libsForQt5.qtstyleplugin-kvantum;
-    };
-
-    home.file.".config/Kvantum/" = {
-        source = ./kvantum;
-        recursive = true;
-    };
-
-    gtk = {
-        enable = true;
-
-        theme = {
-            name = "Breeze-Dark";
-            package = pkgs.kdePackages.breeze-gtk;
-        };
-        
-        font = {
-            name = "Noto Sans Regular";
-            size = 10;
-        };
-
-        iconTheme = {
-            name = "WhiteSur-dark";
-            package = pkgs.whitesur-icon-theme;
-        };
-    };
-
     home.pointerCursor = {
         name = "Bibata-Original-Classic";
         size = 20;
         package = pkgs.bibata-cursors;
         gtk.enable = true;
     };
+
+    stylix = {
+		enable = true;
+		polarity = "dark";
+		base16Scheme = ./catppuccin-mocha.yaml;
+
+		fonts = {
+			serif = {
+				name = "NotoSerif Nerd Font Regular";
+			};
+
+			sansSerif = {
+				name = "NotoSans Nerd Font Regular";
+			};
+
+			monospace = {
+				name = "NotoSansM Nerd Font Mono Regular";
+			};
+
+			emoji = {
+				package = pkgs.noto-fonts-emoji;
+				name = "Noto Color Emoji";
+			};
+
+			sizes = {
+				applications = 10;
+				desktop = 10;
+			};
+		};
+
+		icons = {
+			enable = true;
+			dark = "WhiteSur-dark";
+			package = pkgs.whitesur-icon-theme;
+		};
+
+		targets = {
+			firefox.profileNames = ["Mz"];
+			gtk.enable = true;
+			qt.enable = true;
+			hyprland.enable = false;
+			rofi.enable = false;
+			waybar.enable = false;
+
+			kitty = {
+				enable = false;
+				variant256Colors = true;
+			};
+		};
+	};
 }

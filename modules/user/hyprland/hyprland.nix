@@ -154,10 +154,6 @@
                 }
             }
 
-            gestures {
-                workspace_swipe = false
-            }
-
             ####################
             ### KEYBINDINGSS ###
             ####################

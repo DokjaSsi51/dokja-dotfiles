@@ -26,17 +26,17 @@
     nixpkgs.config.allowUnfree = true;
 
     home.packages = with pkgs; [
-		libsForQt5.ark
+		kdePackages.ark
 		android-tools
         (config.lib.nixGL.wrap pkgs.blender)
         bottles
         btop
         brightnessctl
         (config.lib.nixGL.wrap pkgs.discord)
-        libsForQt5.dolphin
-        (config.lib.nixGL.wrap pkgs.duckstation)
+        kdePackages.dolphin
+        #(config.lib.nixGL.wrap pkgs.duckstation)
         fastfetch
-		(config.lib.nixGL.wrap pkgs.gimp)
+		(config.lib.nixGL.wrap pkgs.gimp3)
         (config.lib.nixGL.wrap pkgs.goverlay)
         grim
         (config.lib.nixGL.wrap pkgs.gthumb)
@@ -44,6 +44,7 @@
         htop
 		hyprsome
 		inkscape
+        (config.lib.nixGL.wrap pkgs.upscaler)
         (config.lib.nixGL.wrap pkgs.lutris)
         (config.lib.nixGL.wrap pkgs.krita)
 		libreoffice
@@ -55,14 +56,14 @@
         nvtopPackages.full
         nwg-displays
     	(config.lib.nixGL.wrap pkgs.obs-studio)
-        libsForQt5.okular
+        kdePackages.okular
         pavucontrol
 		(config.lib.nixGL.wrap pkgs.pcsx2)
         playerctl
         (prismlauncher.override {jdks = [pkgs.emptyDirectory];})
         pyenv
 		qbittorrent
-		(config.lib.nixGL.wrap pkgs.rpcs3)
+		# (config.lib.nixGL.wrap pkgs.rpcs3)
         slurp
         (config.lib.nixGL.wrap pkgs.steam)
         vlc
@@ -89,6 +90,24 @@
                     disabledTrayIcon = true;
                     uiColor = "#369B99";
                 };
+            };
+        };
+
+        hyprpaper = {
+            enable = true;
+            package = pkgs.hyprpaper;
+
+            settings = {
+                splash = true;
+
+                preload = [
+                    "~/Pictures/wallpaper HD.jpg"
+                ];
+
+                wallpaper = [
+                    "DP-3, ~/Pictures/wallpaper HD.jpg"
+                    
+                ];
             };
         };
     };

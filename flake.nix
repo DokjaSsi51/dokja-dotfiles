@@ -14,13 +14,18 @@
     	home-manager-stable.url = "github:nix-community/home-manager/release-24.11";
     	home-manager-stable.inputs.nixpkgs.follows = "nixpkgs-stable";
 
+        stylix = {
+            url = "github:nix-community/stylix";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
+
         nixgl = {
             url = "github:nix-community/nixGL";
             inputs.nixpkgs.follows = "nixpkgs";
         };
     };
 
-    outputs = {self, nixpkgs, home-manager, ...} @ inputs:
+    outputs = {self, nixpkgs, home-manager, stylix, ...} @ inputs:
     let
         lib = nixpkgs.lib;
         system = "x86_64-linux";
@@ -35,6 +40,7 @@
                 extraSpecialArgs = {inherit inputs;};
                 modules = [
                     ./profiles/user/dokja.nix
+                    stylix.homeModules.stylix
                 ];
 	        };
 
