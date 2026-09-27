@@ -10,7 +10,7 @@ smw.setup({
 	link_monitors 					= false,
 	enable_hy3 						= false,
 
-	monitor_priority = { "DP-3" },
+	monitor_priority = { "DP-2", "DP-3" },
 })
 
 for i = 0, 9 do
